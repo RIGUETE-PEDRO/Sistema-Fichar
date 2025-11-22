@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $agora = Carbon::now(); 
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+       DB::table('roles')->insert([
+            ['nome' => 'recepcionista','created_at' => $agora,'updated_at' => $agora],
+            ['nome' => 'admin','created_at' => $agora,'updated_at' => $agora],
+            ['nome' => 'medico','created_at' => $agora,'updated_at' => $agora],
+            ['nome' => 'paciente','created_at' => $agora,'updated_at' => $agora],
+
         ]);
     }
 }

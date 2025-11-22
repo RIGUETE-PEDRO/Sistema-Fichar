@@ -20,6 +20,11 @@
                     <label>Senha:</label>
                     <input type="password" id="password" placeholder="digite sua senha" name="password" required>
                 </div>
+                @if(session('error'))
+                    <div style="color:red; margin-bottom:10px;">
+                    {{ session('error') }}
+                </div>
+                @endif
                 <div class="extra">
                     <label class="cadastrar">
                         <a href="{{ route('cadastrar') }}">cadastrar</a>
